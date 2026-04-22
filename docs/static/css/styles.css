@@ -1036,6 +1036,7 @@ body::after {
   margin-top: 4px;
   background: rgba(255,255,255,0.15);
 }
+
 @media (max-width: 768px) {
   .site-header {
     grid-template-columns: 1fr auto;
