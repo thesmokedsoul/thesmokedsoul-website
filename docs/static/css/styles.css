@@ -1051,3 +1051,8 @@ body::after {
     height: 42px;
   }
 }
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
