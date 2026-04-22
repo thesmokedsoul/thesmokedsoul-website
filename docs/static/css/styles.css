@@ -720,12 +720,13 @@ h1, h2 {
    BRAND HEADER FIX (FINAL)
 ========================= */
 
-.brand-logo {
-  height: 52px;
+.site-header .brand-logo {
+  height: 48px;
   width: auto;
   object-fit: contain;
   display: block;
-  flex-shrink: 0;
+  position: relative;
+  z-index: 20;
 }
 
 .brand span {
@@ -800,10 +801,7 @@ h1, h2 {
   transition: 0.25s ease;
 }
 
-.brand-logo {
-  height: 56px;
-  transition: transform 0.25s ease;
-}
+
 
 .site-header .brand:hover .brand-logo {
   transform: scale(1.03);
@@ -998,13 +996,6 @@ body::after {
   text-shadow: 0 0 1px rgba(255,255,255,0.25);
 }
 
-.brand-logo {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
 .footer-links a {
   color: #eaeaea;
   text-decoration: none;
@@ -1044,4 +1035,17 @@ body::after {
   height: 1px;
   margin-top: 4px;
   background: rgba(255,255,255,0.15);
+}
+
+.site-header .brand-logo {
+  height: 48px;
+  width: auto;
+
+  transform: scale(1) !important;
+  object-fit: contain !important;
+
+  max-width: 100%;
+  max-height: 48px;
+
+  overflow: visible;
 }
