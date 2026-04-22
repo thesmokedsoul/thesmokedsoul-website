@@ -1036,15 +1036,3 @@ body::after {
   margin-top: 4px;
   background: rgba(255,255,255,0.15);
 }
-
-..site-header .brand-logo {
-  height: 48px;
-  width: auto;
-  object-fit: contain;
-  display: block;
-  position: relative;
-  z-index: 20;
-
-  border-radius: 50%;
-  background: transparent;
-}
