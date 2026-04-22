@@ -1040,12 +1040,8 @@ body::after {
 .site-header .brand-logo {
   height: 48px;
   width: auto;
-
-  transform: scale(1) !important;
-  object-fit: contain !important;
-
-  max-width: 100%;
-  max-height: 48px;
-
-  overflow: visible;
+  object-fit: contain;
+  display: block;
+  position: relative;
+  z-index: 20;
 }
