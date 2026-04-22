@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Private chef and event dining rooted in Texas flavor, polished service, and eighteen years of culinary experience.">
-    <title>Texas Gourmet Chef | Private Chef & Events</title>
+    <meta name="description" content="Chef-led dining experiences built on 20 years of restaurant discipline. Private dinners, events, and culinary consulting across Texas.">
+    <title>The Smoked Soul | Chef-Led Dining Experiences</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
@@ -12,63 +12,75 @@
   </head>
   <body>
     <header class="site-header" id="top">
-      <a class="brand" href="#top" aria-label="Texas Gourmet Chef home">
-        <span class="brand-mark">TG</span>
-        <span>Texas Gourmet Chef</span>
-      </a>
-      <nav class="main-nav" aria-label="Main navigation">
-        <a href="#story">Story</a>
-        <a href="#services">Services</a>
-        <a href="#events">Events</a>
-        <a href="#consulting">Consulting</a>
-      </nav>
-      <a class="nav-cta" href="#booking">Book a Date</a>
-    </header>
+  <a class="brand" href="#top" aria-label="The Smoked Soul home">
+    <img class="brand-logo" src="{{ url_for('static', filename='images/the-smoked-soul-logo.png') }}" alt="The Smoked Soul logo">
+    <span>The Smoked Soul</span>
+  </a>
+
+  <nav class="main-nav" aria-label="Main navigation">
+    <a href="#story">Story</a>
+    <a href="#services">Services</a>
+    <a href="#events">Events</a>
+    <a href="#consulting">Consulting</a>
+  </nav>
+
+  <a class="nav-cta" href="#booking">Book a Table</a>
+</header>
 
     <main>
-      <section class="hero" aria-label="Texas private chef hero">
-        <img src="{{ url_for('static', filename='images/chef-plating.jpg') }}" alt="Chef finishing a plated dish at the pass">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-          <p class="eyebrow">Private chef & events</p>
-          <h1>Texas roots. Fine dining polish. Your table, handled.</h1>
-          <p class="hero-copy">Eighteen years of fire, field, and hospitality brought into private dinners, milestone events, and culinary consulting across Texas.</p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#booking">Start Your Booking</a>
-            <a class="button button-ghost" href="#services">Explore Services</a>
-          </div>
-        </div>
-      </section>
+      <section class="hero" aria-label="Private chef hero">
+  <img src="{{ url_for('static', filename='images/header.jpg') }}" alt="Chef finishing a plated dish at the pass">
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+
+    <p class="eyebrow">Smoke • Skill • Service</p>
+
+    <h1>
+  Chef-led dining experiences refined over two decades in high-performance kitchens.
+</h1>
+
+    <p class="hero-copy">
+  The Smoked Soul delivers disciplined, chef-led execution for private dinners, events, and culinary consulting across Texas. Every menu is built for timing, precision, and a room that moves seamlessly from first plate to final course.
+</p>
+
+    <div class="hero-actions">
+      <a class="button button-primary" href="#booking">Request Availability</a>
+      <a class="button button-ghost" href="#services">Explore Services</a>
+    </div>
+
+  </div>
+</section>
 
       <section class="intro-panel" id="story">
         <div class="intro-copy">
-          <p class="eyebrow">18 years at the table</p>
-          <h2>Built on Texas hospitality, sharpened by restaurant discipline.</h2>
-          <p>From ranch-style gatherings to polished multi-course dinners, every menu starts with the people in the room. Expect bold seasonal flavor, clean execution, and service that lets hosts stay present.</p>
+          <p class="eyebrow">20 years at the table</p>
+          <h2 class="outlined-text">Built on Texas hospitality, honed by restaurant discipline.</h2>
+          <p>From ranch-style gatherings to multi-course dinners, every menu is built with purpose and shaped for the table it serves. Expect bold, fire-kissed flavour, steady execution, and service that keeps you present.</p>
         </div>
         <div class="stats-grid" aria-label="Experience highlights">
           <div>
-            <strong>18</strong>
-            <span>years of culinary experience</span>
+            <strong class="stat-bright">20</strong>
+            <span>years at the table</span>
           </div>
           <div>
-            <strong>3</strong>
+            <strong class="stat-bright">3</strong>
             <span>core services for homes, brands, and events</span>
           </div>
           <div>
-            <strong>TX</strong>
-            <span>menus shaped by local producers and smokehouse memory</span>
+            <strong class="stat-bright">TX</strong>
+            <span>cooking shaped by local producers and smokehouse experience</span>
           </div>
         </div>
       </section>
 
       <section class="split-feature">
         <div class="split-image">
-          <img src="{{ url_for('static', filename='images/texas-table.jpg') }}" alt="Shared table covered with generous composed dishes">
+          <img src="{{ url_for('static', filename='images/chef-plating.jpg') }}" alt="Shared table covered with generous composed dishes">
         </div>
         <div class="split-copy">
           <p class="eyebrow">Private dining</p>
-          <h2>A restaurant-level dinner without leaving home.</h2>
+          <h2 class="outlined-text">A restaurant-level dinner without leaving home.</h2>
           <p>Seasonal courses, wine-friendly pacing, and a calm kitchen presence from prep to final wipe-down.</p>
           <ul class="check-list">
             <li>Chef-led tasting menus</li>
@@ -80,12 +92,12 @@
 
       <section class="services" id="services">
         <div class="section-heading">
-          <p class="eyebrow">Services</p>
-          <h2>From intimate dinners to polished productions.</h2>
-        </div>
+  <p class="eyebrow">Crafted Experiences</p>
+  <h2 class="outlined-text">Private dining, events, and consulting built on soul and discipline.</h2>
+</div>
         <div class="service-grid">
           <article class="service-card">
-            <img src="{{ url_for('static', filename='images/salmon-table.jpg') }}" alt="Elegant plated fish dish with wine glasses">
+            <img src="{{ url_for('static', filename='images/steak-table.jpg') }}" alt="Elegant plated fish dish with wine glasses">
             <div>
               <p class="service-number">01</p>
               <h3>Private Dining</h3>
@@ -93,7 +105,7 @@
             </div>
           </article>
           <article class="service-card">
-            <img src="{{ url_for('static', filename='images/kitchen-service.jpg') }}" alt="Chef team finishing plates in a busy kitchen">
+            <img src="{{ url_for('static', filename='images/piggy-smoker.jpg') }}" alt="Chef team finishing plates in a busy kitchen">
             <div>
               <p class="service-number">02</p>
               <h3>Events</h3>
@@ -101,7 +113,7 @@
             </div>
           </article>
           <article class="service-card">
-            <img src="{{ url_for('static', filename='images/prep-board.jpg') }}" alt="Chef slicing okra and vegetables on a prep board">
+            <img src="{{ url_for('static', filename='images/black-truffles.jpg') }}" alt="Chef slicing okra and vegetables on a prep board">
             <div>
               <p class="service-number">03</p>
               <h3>Consulting</h3>
@@ -114,7 +126,7 @@
       <section class="events-band" id="events">
         <div class="events-copy">
           <p class="eyebrow">Events with a pulse</p>
-          <h2>Smoke, citrus, herbs, steel, linen, laughter.</h2>
+          <h2>Smoke. Fire. Salt. Craft.</h2>
           <p>Menus can lean Hill Country, Gulf Coast, modern steakhouse, or fully custom. The throughline is generous food, exact timing, and a host who gets to enjoy the night.</p>
         </div>
         <div class="event-types">
@@ -129,7 +141,7 @@
       <section class="consulting" id="consulting">
         <div>
           <p class="eyebrow">Consulting</p>
-          <h2>Practical culinary strategy for teams that need momentum.</h2>
+          <h2 class="outlined-text">Practical culinary strategy for teams that need momentum.</h2>
         </div>
         <div class="consulting-list">
           <article>
@@ -148,60 +160,98 @@
       </section>
 
       <section class="quote-panel">
-        <img src="{{ url_for('static', filename='images/chef-hands.jpg') }}" alt="Chef carefully placing food on a plate">
+        <img src="{{ url_for('static', filename='images/pit-cooking.jpg') }}" alt="Chef carefully placing food on a plate">
         <div class="quote-copy">
-          <p class="eyebrow">Host notes</p>
-          <blockquote>“The menu felt personal, the service stayed calm, and every guest left talking about the brisket course.”</blockquote>
-          <p class="quote-name">Private dinner client, Austin</p>
+          <p class="eyebrow">Smoked Soul Sessions</p>
+          <blockquote>“I've needed this. For a long time. This reminds me of when I was in the mountains of Jordan with my unit. I have not had a night like this since then.”</blockquote>
+          <p class="quote-name">Field Note: Alex Escobar, Dallas</p>
         </div>
       </section>
 
       <section class="booking" id="booking">
-        <div class="booking-copy">
-          <p class="eyebrow">Booking</p>
-          <h2>Tell us what you are planning.</h2>
-          <p>Share the date, guest count, city, and the kind of evening you want. This form is styled for the mockup and ready to wire into email or a CRM later.</p>
-        </div>
-        <form class="booking-form" action="#" method="post">
-          <label>
-            Name
-            <input type="text" name="name" placeholder="Your name">
-          </label>
-          <label>
-            Email
-            <input type="email" name="email" placeholder="you@example.com">
-          </label>
-          <label>
-            Event Date
-            <input type="text" name="date" placeholder="Month / day / year">
-          </label>
-          <label>
-            Guest Count
-            <input type="text" name="guests" placeholder="About 12">
-          </label>
-          <label class="full-field">
-            What are you planning?
-            <textarea name="details" rows="5" placeholder="Private dinner, event, consulting project..."></textarea>
-          </label>
-          <button class="button button-primary full-field" type="submit">Request Availability</button>
-        </form>
-      </section>
+  <div class="booking-copy">
+    <p class="eyebrow">Booking</p>
+    <h2 class="outlined-text">Let’s build your experience.</h2>
+    <p>
+      Private dinners, events, and consulting inquiries. Share the details so we can design the right fit.
+    </p>
+  </div>
+
+  <form class="booking-form" action="/submit-booking" method="post">
+
+    <label>
+      Name
+      <input type="text" name="name" placeholder="Full name" required>
+    </label>
+
+    <label>
+      Email
+      <input type="email" name="email" placeholder="you@example.com" required>
+    </label>
+
+    <label>
+      Event Type
+      <select name="event_type" required>
+        <option value="">Select one</option>
+        <option>Private Dinner</option>
+        <option>Event / Party</option>
+        <option>Corporate Experience</option>
+        <option>Consulting</option>
+      </select>
+    </label>
+
+    <label>
+      Event Date
+      <input type="date" name="date" required>
+    </label>
+
+    <label>
+      Guest Count
+      <input type="number" name="guests" placeholder="Approx. number" required>
+    </label>
+
+    <label>
+      Budget Range (optional but helpful)
+      <select name="budget">
+        <option value="">Select range</option>
+        <option>$500 – $1,500</option>
+        <option>$1,500 – $3,500</option>
+        <option>$3,500 – $7,500</option>
+        <option>$7,500+</option>
+      </select>
+    </label>
+
+    <label class="full-field">
+      Share your experience
+      <textarea name="details" rows="6" placeholder="Style of food, vibe, location, anything important..."></textarea>
+    </label>
+
+    <button class="button button-primary full-field" type="submit">
+      Request Availability
+    </button>
+
+  </form>
+</section>
     </main>
 
     <footer class="site-footer">
-      <div>
-        <a class="brand footer-brand" href="#top">
-          <span class="brand-mark">TG</span>
-          <span>Texas Gourmet Chef</span>
-        </a>
-        <p>Private chef, events, and consulting rooted in Texas flavor.</p>
-      </div>
-      <div class="footer-links">
-        <a href="#services">Services</a>
-        <a href="#events">Events</a>
-        <a href="#consulting">Consulting</a>
-        <a href="#booking">Book</a>
-      </div>
-    </footer>
+  <div>
+    <a class="brand footer-brand" href="#top">
+      <img src="{{ url_for('static', filename='images/the-smoked-soul-logo.png') }}" 
+     alt="The Smoked Soul logo" 
+     class="brand-logo">
+      <span>The Smoked Soul</span>
+    </a>
+
+    <p>Private chef, events, and consulting rooted in Texas fire and discipline.</p>
+  </div>
+
+  <div class="footer-links">
+    <a href="#services">Services</a>
+    <a href="#events">Events</a>
+    <a href="#consulting">Consulting</a>
+    <a href="#booking">Book</a>
+  </div>
+</footer>
   </body>
 </html>
