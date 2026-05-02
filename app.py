@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, send_from_directory, render_template
+from flask import Flask, request, jsonify, send_from_directory, render_template, Response
 import csv
 import os
 from datetime import datetime
@@ -10,6 +10,7 @@ from email.mime.text import MIMEText
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from google.auth.transport.requests import Request
+from functools import wraps
 
 app = Flask(__name__, static_folder="static")
 
@@ -22,6 +23,30 @@ GOOGLE_CREDS_FILE = "smoked-soul-writer.json"
 SPREADSHEET_NAME = "The Smoked Soul Leads"
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 CSV_PATH = os.path.join(BASE_DIR, "bookings.csv")
+
+ADMIN_USERNAME = os.environ.get("ADMIN_USERNAME", "chef")
+ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD", "change-this-password")
+
+
+def check_auth(username, password):
+    return username == ADMIN_USERNAME and password == ADMIN_PASSWORD
+
+
+def require_admin_auth(f):
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        auth = request.authorization
+
+        if not auth or not check_auth(auth.username, auth.password):
+            return Response(
+                "Admin access requires login.",
+                401,
+                {"WWW-Authenticate": 'Basic realm="The Smoked Soul Admin"'}
+            )
+
+        return f(*args, **kwargs)
+
+    return decorated
 
 # -----------------------------
 # CSV SETUP
@@ -163,8 +188,11 @@ def submit_booking():
         "redirect": "/thank-you"
     })
 
-
+# -----------------------------
+# ADMIN AUTH CONFIG
+# -----------------------------
 @app.route("/admin")
+@require_admin_auth
 def admin_dashboard():
 
     with open(CSV_PATH, newline="") as f:
@@ -183,6 +211,7 @@ def admin_dashboard():
 
 
 @app.route("/update-status")
+@require_admin_auth
 def update_status():
     try:
         row_index = int(request.args.get("row"))
