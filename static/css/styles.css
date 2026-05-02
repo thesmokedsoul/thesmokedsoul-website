@@ -3016,7 +3016,7 @@ main.story-page > section.intro-panel:last-of-type p {
     height: 100% !important;
 
     object-fit: cover !important;
-    object-position: 32% 28% !important;
+    object-position: 22% 28% !important;
 
     transform: none !important;
     filter: none !important;
@@ -3091,7 +3091,7 @@ main.story-page > section.intro-panel:last-of-type p {
   }
 
   .page > .hero:first-child > img {
-    object-position: 30% 24% !important;
+    object-position: 20% 24% !important;
   }
 
   .page > .hero:first-child .hero-content h1 {
