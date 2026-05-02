@@ -1,0 +1,212 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+
+      <!-- HERO -->
+      <section class="hero" aria-label="Private chef hero">
+        <img src="{{ url_for('static', filename='images/header.jpg') }}" alt="Header">
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+          <p class="eyebrow">Smoke • Skill • Service</p>
+
+          <h1>
+            Chef-led dining experiences refined over two decades in high-performance kitchens.
+          </h1>
+
+          <p class="hero-copy">
+            The Smoked Soul delivers disciplined, chef-led execution for private dinners, events, and culinary consulting across Texas. Every menu is built for timing, precision, and a room that moves seamlessly from first plate to final course.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="#booking">Request Availability</a>
+            <a class="button button-ghost" href="#services">Explore Services</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- STORY -->
+      <section class="intro-panel" id="story">
+        <div class="intro-copy">
+          <p class="eyebrow">Where fire meets the table.</p>
+          <h2 class="outlined-text">Built on Texas hospitality, honed by restaurant discipline.</h2>
+          <p>From ranch-style gatherings to multi-course dinners, every menu is built with purpose and shaped for the table it serves. Expect bold, fire-kissed flavour, steady execution, and service that keeps you present.</p>
+        </div>
+
+        <div class="stats-grid">
+          <div><strong class="stat-bright">20</strong><span>years at the table</span></div>
+          <div><strong class="stat-bright">3</strong><span>core services for homes, brands, and events</span></div>
+          <div><strong class="stat-bright">TX</strong><span>cooking shaped by local producers and smokehouse experience</span></div>
+        </div>
+      </section>
+
+      <!-- SPLIT -->
+      <section class="split-feature">
+        <div class="split-image">
+          <img src="{{ url_for('static', filename='images/chef-plating.jpg') }}" alt="chef-plating">
+        </div>
+        <div class="split-copy">
+          <p class="eyebrow">Private dining</p>
+          <h2 class="outlined-text">A restaurant-level dinner without leaving home.</h2>
+          <p>Seasonal courses, wine-friendly pacing, and a calm kitchen presence from prep to final wipe-down.</p>
+          <ul class="check-list">
+            <li>Chef-led tasting menus</li>
+            <li>Family-style ranch suppers</li>
+            <li>Anniversaries, birthdays, and executive dinners</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section class="services" id="services">
+        <div class="section-heading">
+          <p class="eyebrow">Crafted Experiences</p>
+          <h2 class="outlined-text">Private dining, events, and consulting built on soul and discipline.</h2>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card">
+            <img src="{{ url_for('static', filename='images/steak-table.jpg') }}" alt="Elegant plated steak dish">
+            <div>
+              <p class="service-number">01</p>
+              <h3>Private Dining</h3>
+              <p>Multi-course dinners, relaxed family-style meals, and chef-hosted evenings tailored to your home and guests.</p>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <img src="{{ url_for('static', filename='images/piggy-smoker.jpg') }}" alt="suckling pig in a smoker">
+            <div>
+              <p class="service-number">02</p>
+              <h3>Events</h3>
+              <p>Reception bites, plated dinners, and service planning for celebrations, client gatherings, and private parties.</p>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <img src="{{ url_for('static', filename='images/black-truffles.jpg') }}" alt="black truffles">
+            <div>
+              <p class="service-number">03</p>
+              <h3>Consulting</h3>
+              <p>Menu development, kitchen flow, launch support, and culinary direction for hospitality teams and food brands.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- EVENTS -->
+      <section class="events-band" id="events">
+        <div class="events-copy">
+          <p class="eyebrow">Events with a pulse</p>
+          <h2>Smoke. Fire. Salt. Craft.</h2>
+          <p>Menus can lean Hill Country, Gulf Coast, modern steakhouse, or fully custom. The throughline is generous food, exact timing, and a host who gets to enjoy the night.</p>
+        </div>
+
+        <div class="event-types">
+          <span>Backyard tasting dinners</span>
+          <span>Corporate hosted tables</span>
+          <span>Rehearsal dinners</span>
+          <span>Holiday parties</span>
+          <span>Brand activations</span>
+        </div>
+      </section>
+
+      <!-- CONSULTING -->
+      <section class="consulting" id="consulting">
+        <div>
+          <p class="eyebrow">Consulting</p>
+          <h2 class="outlined-text">Practical culinary strategy for teams that need momentum.</h2>
+        </div>
+
+        <div class="consulting-list">
+          <article>
+            <h3>Menu Direction</h3>
+            <p>Sharper concepts, cleaner costing, and dishes built for real service conditions.</p>
+          </article>
+
+          <article>
+            <h3>Service Flow</h3>
+            <p>Prep maps, station planning, and event timing that keep the room moving.</p>
+          </article>
+
+          <article>
+            <h3>Launch Support</h3>
+            <p>Hands-on help for pop-ups, private dining programs, and food brand experiences.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- QUOTE -->
+      <section class="quote-panel">
+        <img src="{{ url_for('static', filename='images/pit-cooking.jpg') }}" alt="Chef cooking over a pit fire">
+        <div class="quote-copy">
+          <p class="eyebrow">Smoked Soul Sessions</p>
+          <blockquote>
+            “I've needed this. For a long time. This reminds me of when I was in the mountains of Jordan with my unit. I have not had a night like this since then.”
+          </blockquote>
+          <p class="quote-name">Field Note: Alex Escobar, Dallas</p>
+        </div>
+      </section>
+
+
+      <!-- BOOKING -->
+      <section class="booking" id="booking">
+        <div class="booking-copy">
+          <p class="eyebrow">Booking</p>
+          <h2 class="outlined-text">Let’s build your experience.</h2>
+          <p>Private dinners, events, and consulting inquiries. Share the details so we can design the right fit.</p>
+        </div>
+
+        <form class="booking-form" id="booking-form">
+
+          <div class="form-step active">
+            <h3>Tell me about your event</h3>
+            <label>Name</label>
+            <input name="name" required>
+
+            <label>Email</label>
+            <input name="email" type="email" required>
+
+            <label>Event Type</label>
+            <input name="event_type" required>
+
+            <button type="button" class="next">Next</button>
+          </div>
+
+          <div class="form-step">
+            <h3>Event details</h3>
+            <label>Date</label>
+            <input name="date" type="date" required>
+
+            <label>Guests</label>
+            <input name="guests" type="number" required>
+
+            <label>Budget</label>
+            <input name="budget" required>
+
+            <button type="button" class="back">Back</button>
+            <button type="button" class="next">Next</button>
+          </div>
+
+          <div class="form-step">
+            <h3>Final details</h3>
+            <textarea name="details"></textarea>
+            <button type="button" class="back">Back</button>
+            <button type="submit">Book Now</button>
+          </div>
+
+        </form>
+      </section>
+
+<script>
+const steps = document.querySelectorAll(".form-step");
+const form = document.querySelector("#booking-form");
+let current = 0;
+
+/* rest of booking script */
+</script>
+
+{% endblock %}

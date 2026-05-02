@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Smoked Soul — Admin</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #111;
+            color: #f5f5f5;
+            padding: 16px;
+            margin: 0;
+        }
+
+        h1 {
+            color: #ff6b00;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        /* FILTER BAR */
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 12px 0 18px 0;
+        }
+
+        .filters a {
+            padding: 8px 10px;
+            border-radius: 8px;
+            background: #222;
+            color: #fff;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .filters a:hover {
+            background: #ff6b00;
+            color: #000;
+        }
+
+        /* TABLE WRAPPER */
+        .table-wrap {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            width: 100%;
+            min-width: 900px;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            border: 1px solid #333;
+            padding: 10px;
+            text-align: left;
+            font-size: 13px;
+            vertical-align: top;
+        }
+
+        th {
+            background: #222;
+            color: #ff6b00;
+            position: sticky;
+            top: 0;
+            z-index: 2;
+        }
+
+        tr:nth-child(even) {
+            background: #1a1a1a;
+        }
+
+        /* STATUS BUTTON */
+        .status {
+            display: inline-block;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 12px;
+            border: 1px solid transparent;
+        }
+
+        .status-new { color: #00ff99; border-color: #00ff99; }
+        .status-contacted { color: #ffcc00; border-color: #ffcc00; }
+        .status-booked { color: #ff6b00; border-color: #ff6b00; }
+        .status-done { color: #888; border-color: #444; text-decoration: line-through; }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+            table {
+                min-width: 0;
+                display: block;
+            }
+
+            thead { display: none; }
+
+            tr {
+                display: block;
+                margin-bottom: 14px;
+                background: #1a1a1a;
+                border-radius: 10px;
+                padding: 10px;
+            }
+
+            td {
+                display: flex;
+                justify-content: space-between;
+                border: none;
+                border-bottom: 1px solid #222;
+                padding: 8px 0;
+                font-size: 13px;
+            }
+
+            td::before {
+                content: attr(data-label);
+                font-weight: bold;
+                color: #888;
+            }
+
+            td:last-child {
+                border-bottom: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>🔥 The Smoked Soul CRM</h1>
+
+<div>Bookings loaded: {{ bookings|length }}</div>
+
+<!-- FILTERS -->
+<div class="filters">
+    <a href="/admin">ALL</a>
+    <a href="/admin?status=NEW">NEW</a>
+    <a href="/admin?status=CONTACTED">CONTACTED</a>
+    <a href="/admin?status=BOOKED">BOOKED</a>
+    <a href="/admin?status=DONE">DONE</a>
+</div>
+
+<div class="table-wrap">
+
+<table>
+
+    <thead>
+        <tr>
+            <th>Timestamp</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Event</th>
+            <th>Date</th>
+            <th>Guests</th>
+            <th>Budget</th>
+            <th>Details</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+    {% for index, row in bookings %}
+
+        {% set labels = ["Timestamp","Name","Email","Event","Date","Guests","Budget","Details"] %}
+
+        <tr>
+
+            {% for item in row[:8] %}
+                <td data-label="{{ labels[loop.index0] }}">{{ item }}</td>
+            {% endfor %}
+
+            {% set status = row[8] if row|length > 8 else "NEW" %}
+
+            {% set next_status =
+                "CONTACTED" if status == "NEW"
+                else "BOOKED" if status == "CONTACTED"
+                else "DONE" if status == "BOOKED"
+                else "NEW"
+            %}
+
+            <td data-label="Status">
+                <a class="status status-{{ status|lower }}"
+                   href="/update-status?row={{ index }}&status={{ next_status }}">
+                    {{ status }}
+                </a>
+            </td>
+
+        </tr>
+
+    {% endfor %}
+
+    </tbody>
+
+</table>
+
+</div>
+
+<!-- 🔥 LIVE AUTO REFRESH (THIS IS THE PART YOU WANTED) -->
+<script>
+    async function refreshAdmin() {
+        try {
+            const res = await fetch(window.location.href, {
+                headers: { "X-Requested-With": "XMLHttpRequest" }
+            });
+
+            const html = await res.text();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, "text/html");
+
+            const newTable = doc.querySelector(".table-wrap");
+            const currentTable = document.querySelector(".table-wrap");
+
+            if (newTable && currentTable) {
+                currentTable.innerHTML = newTable.innerHTML;
+            }
+
+        } catch (err) {
+            console.log("refresh failed", err);
+        }
+    }
+
+    setInterval(refreshAdmin, 10000); // every 10 seconds
+</script>
+
+</body>
+</html>

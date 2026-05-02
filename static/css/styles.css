@@ -1,0 +1,2713 @@
+:root {
+  /* CORE DARKS */
+  --ink: #e8e3da;              /* soft bone text (NOT white) */
+  --coal: #0f0f0e;             /* near-black base */
+
+  /* BACKGROUNDS */
+  --white: #121110;            /* replaces pure white with warm black */
+  --mist: #171513;             /* primary section background */
+  --line: #2a2520;             /* subtle structure lines */
+
+  /* ACCENTS */
+  --sage: #3a3f38;             /* muted steel olive */
+  --sage-dark: #1f221d;
+
+  --chili: #9a2a20;            /* ember red */
+  --chili-deep: #6a1b15;
+
+  --gold: #b08a3e;             /* aged brass highlight */
+
+  /* DEPTH */
+  --shadow: 0 35px 100px rgba(0,0,0,0.55);
+
+  /* TYPE */
+  --display: "Playfair Display", Georgia, serif;
+  --body: "Outfit", Arial, sans-serif;
+}
+
+:root {
+  --header-height: 84px;
+}
+
+:root {
+  --ink: #e8e3da;          /* main text (bone) */
+  --muted: rgba(232,227,218,0.65);
+  --soft: rgba(232,227,218,0.45);
+
+  --fire: #c24a3a;         /* primary red accent */
+  --fire-deep: #8f2e24;    /* darker red */
+  --ember: #e05a47;        /* brighter highlight */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+
+}
+
+body {
+  margin: 0;
+  background: var(--white);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+img {
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-header {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 28px;
+  padding: 18px 5%;
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid rgba(223, 230, 220, 0.76);
+  backdrop-filter: blur(18px);
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  background: var(--ink);
+  color: var(--white);
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+  font-family: var(--display);
+  font-size: 15px;
+}
+
+.main-nav {
+  display: flex;
+  justify-content: center;
+  gap: 26px;
+  color: var(--coal);
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.main-nav a,
+.footer-links a {
+  border-bottom: 2px solid transparent;
+}
+
+.main-nav a:hover,
+.footer-links a:hover {
+  border-color: var(--chili);
+}
+
+.nav-cta,
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 12px 20px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.nav-cta,
+.button-primary {
+  background: var(--chili);
+  color: var(--white);
+}
+
+.nav-cta:hover,
+.button-primary:hover {
+  background: #982a24;
+}
+
+.button-ghost {
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.76);
+}
+
+.button-ghost:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.hero {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  color: var(--white);
+}
+
+.hero > img,
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to right,
+      rgba(0,0,0,0.75) 0%,
+      rgba(0,0,0,0.55) 40%,
+      rgba(0,0,0,0.25) 70%,
+      rgba(0,0,0,0.05) 100%
+    ),
+    linear-gradient(
+      to top,
+      rgba(0,0,0,0.65),
+      rgba(0,0,0,0.25)
+    );
+
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  width: min(820px, 92%);
+  padding: 160px 5% 90px;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--chili);
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.hero .eyebrow,
+.events-band .eyebrow {
+  color: var(--gold);
+}
+
+h1,
+h2,
+h3,
+p {
+  overflow-wrap: break-word;
+}
+
+h1,
+h2 {
+  margin: 0;
+  font-family: var(--display);
+  line-height: 1.04;
+}
+
+h1 {
+  max-width: 720px;
+  font-size: 68px;
+}
+
+h2 {
+  font-size: 46px;
+}
+
+h3 {
+  margin: 0 0 10px;
+  font-size: 24px;
+  line-height: 1.15;
+}
+
+.hero-copy {
+  max-width: 640px;
+  margin: 24px 0 0;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 21px;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.intro-panel {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 46px;
+  padding: 84px 5%;
+  background: var(--mist);
+}
+
+.intro-copy {
+  max-width: 790px;
+}
+
+.intro-copy p:last-child,
+.split-copy p,
+.events-copy p,
+.booking-copy p {
+  color: #485046;
+  font-size: 18px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  align-self: end;
+}
+
+.stats-grid div {
+  min-height: 160px;
+  padding: 22px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.stats-grid strong {
+  display: block;
+  color: var(--sage-dark);
+  font-family: var(--display);
+  font-size: 44px;
+  line-height: 1;
+}
+
+.stats-grid span {
+  display: block;
+  margin-top: 14px;
+  color: #4b5548;
+  font-weight: 600;
+}
+
+.split-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 560px);
+  min-height: 650px;
+}
+
+.split-image {
+  min-height: 540px;
+}
+
+.split-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 72px 8%;
+  background: var(--white);
+}
+
+.check-list {
+  display: grid;
+  gap: 12px;
+  margin: 22px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.check-list li {
+  position: relative;
+  padding-left: 28px;
+  font-weight: 700;
+}
+
+.check-list li::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  background: var(--gold);
+  border: 3px solid var(--sage-dark);
+  border-radius: 50%;
+}
+
+.services {
+  padding: 0 5% 96px;
+  background: var(--coal);
+  color: var(--white);
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  align-items: end;
+  margin-bottom: 34px;
+}
+
+.section-heading h2 {
+  max-width: 720px;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.service-card {
+  display: grid;
+  grid-template-rows: 310px 1fr;
+  min-height: 600px;
+  background: #ffffff;
+  color: var(--ink);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.service-card div {
+  padding: 28px;
+}
+
+.service-number {
+  margin: 0 0 14px;
+  color: var(--chili);
+  font-weight: 800;
+}
+
+.service-card p:last-child {
+  color: #4a5248;
+}
+
+.events-band {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.7fr);
+  gap: 44px;
+  padding: 92px 5%;
+  background: var(--sage-dark);
+  color: var(--white);
+}
+
+.events-copy {
+  max-width: 720px;
+}
+
+.events-copy p {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.event-types {
+  display: grid;
+  gap: 12px;
+  align-content: center;
+}
+
+.event-types span {
+  padding: 17px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 8px;
+  color: var(--white);
+  font-weight: 700;
+}
+
+.consulting {
+  display: grid;
+  grid-template-columns: 0.76fr 1fr;
+  gap: 50px;
+  padding: 90px 5%;
+  background: var(--white);
+}
+
+.consulting-list {
+  display: grid;
+  gap: 16px;
+}
+
+.consulting-list article {
+  padding: 24px;
+  border-left: 5px solid var(--gold);
+  background: var(--mist);
+  border-radius: 0 8px 8px 0;
+}
+
+.consulting-list p {
+  margin-bottom: 0;
+  color: #485046;
+}
+
+.quote-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(360px, 0.75fr);
+  min-height: 560px;
+  background: var(--ink);
+  color: var(--white);
+}
+
+.quote-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 64px 9%;
+}
+
+blockquote {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 38px;
+  line-height: 1.16;
+}
+
+.quote-name {
+  color: rgba(255, 255, 255, 0.72);
+  font-weight: 700;
+}
+
+.booking {
+  display: grid;
+  grid-template-columns: 0.72fr 1fr;
+  gap: 52px;
+  padding: 92px 5%;
+  background: var(--mist);
+}
+
+.booking-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+label {
+  display: grid;
+  gap: 8px;
+  color: var(--coal);
+  font-size: 14px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 15px 16px;
+  color: var(--ink);
+  font: inherit;
+  text-transform: none;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.full-field {
+  grid-column: 1 / -1;
+}
+
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 38px 5%;
+  background: var(--ink);
+  color: var(--white);
+}
+
+.site-footer p {
+  margin-bottom: 0;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.footer-brand .brand-mark {
+  background: var(--white);
+  color: var(--ink);
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1040px) {
+  .site-header {
+    grid-template-columns: 1fr auto;
+  }
+
+  .main-nav {
+    display: none;
+  }
+
+  h1 {
+    font-size: 54px;
+  }
+
+  h2 {
+    font-size: 38px;
+  }
+
+  .intro-panel,
+  .events-band,
+  .consulting,
+  .booking {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-grid,
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card {
+    min-height: auto;
+  }
+
+  .split-feature,
+  .quote-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .quote-panel img {
+    min-height: 430px;
+  }
+}
+
+@media (max-width: 680px) {
+  :root {
+    --header-height: 70px;
+  }
+}
+
+  .nav-cta {
+    min-height: 42px;
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+
+  .hero {
+    min-height: 88vh;
+  }
+
+  .hero-content {
+    width: 100%;
+    padding: 124px 5% 44px;
+  }
+
+  h1 {
+    font-size: 42px;
+  }
+
+  h2 {
+    font-size: 32px;
+  }
+
+  blockquote {
+    font-size: 30px;
+  }
+
+  .hero-copy,
+  .intro-copy p:last-child,
+  .split-copy p,
+  .events-copy p,
+  .booking-copy p {
+    font-size: 17px;
+  }
+
+  .intro-panel,
+  .services,
+  .events-band,
+  .consulting,
+  .booking {
+    padding: 64px 5%;
+  }
+
+  .split-copy,
+  .quote-copy {
+    padding: 54px 5%;
+  }
+
+  .split-image,
+  .quote-panel img {
+    min-height: 360px;
+  }
+
+  .service-card {
+    grid-template-rows: 260px 1fr;
+  }
+
+  .booking-form,
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .site-footer {
+    flex-direction: column;
+  }
+
+  .footer-links {
+    justify-content: flex-start;
+  }
+}
+
+ /* =========================
+   LUXURY POLISH PATCH
+   STEP 1 - SMOKED SOUL
+========================= */
+
+h1, h2 {
+  letter-spacing: -0.02em;
+}
+
+.hero h1 {
+  letter-spacing: -0.03em;
+}
+
+.hero-copy {
+  font-weight: 400;
+}
+
+.section-heading {
+  margin-bottom: 54px;
+}
+
+.service-card,
+.consulting-list article,
+.stats-grid div {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 90px rgba(0,0,0,0.25);
+}
+
+.consulting-list article:hover {
+  transform: translateY(-4px);
+}
+
+.button-primary {
+  letter-spacing: 0.08em;
+}
+
+.button-ghost {
+  letter-spacing: 0.06em;
+}
+
+.main-nav {
+  letter-spacing: 0.08em;
+}
+
+.main-nav a {
+  opacity: 0.85;
+}
+
+.main-nav a:hover {
+  opacity: 1;
+}
+
+.hero h1 {
+  max-width: 780px;
+  letter-spacing: -0.03em;
+}
+
+.hero-copy {
+  max-width: 620px;
+  font-weight: 400;
+  opacity: 0.92;
+}
+
+.hero-actions {
+  margin-top: 40px;
+}
+
+.hero img,
+.service-card img,
+.split-image img,
+.quote-panel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* =========================
+   BRAND HEADER FIX (FINAL)
+========================= */
+
+.brand-logo {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+}
+
+.brand span {
+  display: inline-block;
+  white-space: nowrap;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.brand span {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  color: var(--ink) !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  white-space: nowrap;
+}
+
+.site-header .brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: max-content;
+}
+
+.site-header .brand span {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.site-footer .footer-brand span {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.site-header .brand span {
+  font-family: var(--display);
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.site-header {
+  padding: 20px 5%;
+}
+
+.main-nav {
+  gap: 22px;
+  letter-spacing: 0.1em;
+}
+
+.site-header {
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+.site-header .brand:hover span {
+  color: var(--sage-dark);
+  transition: 0.25s ease;
+}
+
+.brand-logo {
+  height: 56px;
+  transition: transform 0.25s ease;
+}
+
+.site-header .brand:hover .brand-logo {
+  transform: scale(1.03);
+}
+
+:root {
+  --text-primary: #3a403a;
+  --text-soft: #4a524a;
+}
+
+/* Global body text - significantly brighter */
+body {
+  color: var(--text-primary);
+}
+
+/* Paragraphs everywhere */
+p {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* Strong readability boost for key copy blocks */
+.intro-copy p:last-child,
+.split-copy p,
+.events-copy p,
+.events-copy p,
+.booking-copy p,
+.hero-copy {
+  color: var(--text-soft);
+  font-weight: 500;
+}
+
+/* Headings stay strong but not harsh */
+h1, h2, h3 {
+  color: #7c807e;
+}
+
+/* Stats text */
+.stats-grid span {
+  color: var(--text-soft);
+  font-weight: 600;
+}
+
+/* Form labels - MUCH more visible now */
+label {
+  color: #2a302a;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+}
+
+/* Inputs */
+input,
+textarea,
+select {
+  color: #1b1f1b;
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.12);
+}
+
+/* Placeholder */
+input::placeholder,
+textarea::placeholder {
+  color: #6a746a;
+}
+
+/* Nav links slightly clearer */
+.main-nav {
+  color: #2a2f2a;
+}
+
+.hero h1 {
+  color: #f2efe8;              /* much brighter bone */
+  text-shadow: 0 2px 18px rgba(0,0,0,0.55);
+}
+/* === EVENTS BAND EMPHASIS ONLY === */
+.event-types span {
+  color: #ffffff;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.events-band h2 {
+  color: #ffffff;
+}
+
+/* =========================
+   HEADER + FOOTER DARKENED (25%)
+========================= */
+
+.site-header {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 28px;
+  padding: 18px 5%;
+
+  /* DARKENED */
+  background: rgba(15, 17, 15, 0.78);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+
+/* make header text readable on darker background */
+.site-header .brand span,
+.main-nav a {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.main-nav {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* CTA stays strong */
+.nav-cta {
+  background: var(--chili);
+  color: var(--white);
+}
+
+/* =========================
+   FOOTER (DARKENED SLIGHTLY)
+========================= */
+
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 38px 5%;
+
+  /* DARKER THAN BEFORE (~25%) */
+  background: #0c0e0c;
+  color: var(--white);
+}
+
+.site-footer p {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.site-footer .footer-brand span {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.hero-copy {
+  color: rgba(255, 255, 255, 0.98);
+  opacity: 1;
+}
+
+img[src*="chef-plating"] {
+  transform: scale(0.65);
+  transform-origin: center;
+}
+
+img[src*="pit-cooking"] {
+  transform: scale(0.9);
+  transform-origin: center;
+}
+
+.quote-name {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.quote-panel .quote-name {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 6px 10px;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 6px;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 999999;
+}
+
+.outlined-text {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.25);
+  color: #eaeaea;
+}
+
+.stat-bright {
+  color: #ffffff;
+  text-shadow: 0 0 1px rgba(255,255,255,0.25);
+}
+
+.brand-logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.footer-links a {
+  color: #eaeaea;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+}
+
+.booking-form label {
+  color: #6a1b15; /* match your main body text color */
+}
+.consulting-list h3 {
+  filter: brightness(1.5);
+}
+
+.events-band .event-types span {
+  color: inherit;
+  filter: brightness(1.8);
+  font-weight: 1000;
+}
+
+.events-band .event-types span {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.events-band .event-types span {
+  position: relative;
+}
+
+.events-band .event-types span::after {
+  content: "";
+  display: block;
+  width: 35%;
+  height: 1px;
+  margin-top: 4px;
+  background: rgba(255,255,255,0.15);
+}
+.event-types span {
+  color: #ffffff !important;
+}
+.stats-grid strong {
+  color: #ffffff !important;
+}
+
+
+/* =========================
+   THE SMOKED SOUL CRM MODE
+   (ONLY /admin)
+========================= */
+
+.admin-page {
+  background: var(--coal);
+  color: var(--ink);
+  padding: 20px;
+}
+
+/* HEADERS */
+.admin-page h1 {
+  color: var(--gold);
+  font-family: var(--display);
+  letter-spacing: 0.02em;
+}
+
+/* TABLE */
+.admin-page table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: var(--mist);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.admin-page th {
+  background: var(--coal);
+  color: var(--gold);
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  padding: 14px;
+}
+
+.admin-page td {
+  padding: 14px;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+}
+
+.admin-page tr:nth-child(even) {
+  background: rgba(255,255,255,0.02);
+}
+
+/* =========================
+   STATUS SYSTEM (CRM CORE)
+========================= */
+
+.admin-page a {
+  text-decoration: none;
+}
+
+/* BASE STATUS BUTTON */
+.admin-page .status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 12px;
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+/* HOVER FEEL (makes it feel clickable / alive) */
+.admin-page .status:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.1);
+}
+
+/* =========================
+   STATUS STATES
+========================= */
+
+/* NEW LEAD — urgency / attention */
+.admin-page .status-new {
+  background: var(--chili);
+  color: var(--white);
+}
+
+/* CONTACTED — in motion / warm tracking */
+.admin-page .status-contacted {
+  background: var(--gold);
+  color: var(--coal);
+}
+
+/* BOOKED — confirmed revenue */
+.admin-page .status-booked {
+  background: var(--sage);
+  color: var(--white);
+}
+
+/* DONE — archived / completed */
+.admin-page .status-done {
+  background: #2a2a2a;
+  color: #9a9a9a;
+  text-decoration: line-through;
+  opacity: 0.85;
+}
+
+/* =========================
+   OPTIONAL: VISUAL PULSE FOR NEW LEADS
+========================= */
+
+.admin-page .status-new {
+  animation: pulseNew 2.5s infinite;
+}
+
+@keyframes pulseNew {
+  0%   { box-shadow: 0 0 0 0 rgba(154, 42, 32, 0.45); }
+  70%  { box-shadow: 0 0 0 10px rgba(154, 42, 32, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(154, 42, 32, 0); }
+}
+
+/* MOBILE VIEW */
+@media (max-width: 768px) {
+
+    table {
+        display: block;
+        overflow: hidden;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tbody, tr {
+        display: block;
+        width: 100%;
+    }
+
+    tr {
+        background: #1a1a1a;
+        margin-bottom: 12px;
+        border-radius: 10px;
+        padding: 12px;
+    }
+
+    td {
+        display: flex;
+        justify-content: space-between;
+        padding: 6px 0;
+        border: none;
+        border-bottom: 1px solid #222;
+    }
+
+    td:last-child {
+        border-bottom: none;
+    }
+
+    td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #888;
+    }
+}
+
+.form-step {
+  display: none;
+}
+
+.form-step.active {
+  display: block;
+}
+
+/* booking form layout control */
+#booking-form {
+  display: grid;
+  gap: 16px;
+  max-width: 520px;
+  margin-top: 20px;
+}
+
+#booking-form h3 {
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: var(--ink);
+}
+
+#booking-form label {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-top: 10px;
+}
+
+#booking-form input,
+#booking-form textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background: #1a1a1a;
+  color: #fff;
+}
+
+#booking-form button {
+  margin-top: 10px;
+}
+
+#booking-form label {
+  color: #6a1b15 !important;
+}
+
+.page {
+  padding: 64px 5% 80px;
+}
+
+.page > *:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* =========================
+   HEADER OFFSET FINAL FIX
+   (SAFE GLOBAL SYSTEM)
+========================= */
+
+/* single source of truth spacing */
+:root {
+  --header-height: 84px;
+}
+
+/* FIXED HEADER SPACE RESERVATION */
+body {
+  margin: 0;
+  padding-top: var(--header-height);
+}
+
+/* HERO PAGES (prevents double push / oversized feel) */
+.hero {
+  min-height: calc(92vh - var(--header-height));
+}
+
+/* CONTENT PAGES (experience, goods, story, etc.) */
+.page {
+  padding-top: 24px;
+}
+
+/* prevents anchor links hiding under header */
+html {
+  scroll-padding-top: var(--header-height);
+  scroll-behavior: smooth;
+}
+
+/* safety reset for first child stacking issues */
+.page > *:first-child {
+  margin-top: 0 !important;
+}
+
+/* MOBILE HEADER ADJUSTMENT */
+@media (max-width: 680px) {
+  :root {
+    --header-height: 70px;
+  }
+
+  body {
+    padding-top: var(--header-height);
+  }
+}
+
+/* =========================
+   STORY PAGE EMERGENCY FIX
+   (Restores Smoked Soul dark theme)
+========================= */
+
+body {
+  color: var(--ink) !important;
+}
+
+/* FORCE ALL STORY SECTIONS BACK INTO DARK SYSTEM */
+.intro-panel,
+.brand-philosophy {
+  background: var(--mist) !important;
+  color: var(--ink) !important;
+}
+
+/* TEXT REPAIR (your global overrides are bleeding in) */
+.intro-panel p,
+.brand-philosophy p {
+  color: #485046 !important;
+}
+
+/* HEADINGS BACK TO THEME */
+.intro-panel h2,
+.brand-philosophy h2 {
+  color: #7c807e !important;
+}
+
+/* EYEBROW FIX */
+.intro-panel .eyebrow,
+.brand-philosophy .eyebrow {
+  color: var(--gold) !important;
+}
+
+/* OUTLINED TEXT RESTORE */
+.outlined-text {
+  color: #eaeaea !important;
+  -webkit-text-stroke: 1px rgba(255,255,255,0.25);
+}
+
+/* SAFETY AGAINST WHITE OVERRIDES */
+section {
+  background-color: inherit;
+}
+
+body {
+  background: var(--coal) !important;
+  color: var(--ink) !important;
+}
+
+.intro-panel,
+.brand-philosophy {
+  background: var(--mist) !important;
+  color: var(--ink) !important;
+}
+
+.intro-panel {
+  padding-top: 64px;
+  padding-bottom: 48px;
+}
+
+.intro-copy {
+  padding-top: 64px;
+}
+
+.intro-copy p {
+  margin-bottom: 18px;
+  line-height: 1.7;
+}
+
+.outlined-text {
+  margin-bottom: 12px;
+}
+
+.intro-copy .eyebrow {
+  margin-bottom: 6px;
+}
+
+.intro-panel {
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.experience-grid {
+  display: grid;
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+.experience-card {
+  background: var(--coal);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 2rem;
+  border-radius: 12px;
+}
+
+.experience-card h2 {
+  margin-bottom: 0.75rem;
+}
+
+.experience-card ul {
+  margin-top: 1rem;
+  padding-left: 1.2rem;
+}
+
+.experience-card.alt {
+  transform: translateY(10px);
+}
+
+.narrow {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Dark overlay for readability + mood control */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+/* Ensures text sits above overlay */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.hero-content p {
+  color: var(--ink);
+  opacity: 0.85;
+}
+
+.hero-content p + p {
+  opacity: 0.7;
+  font-style: italic;
+}
+
+.experience-hero {
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* IMAGE */
+.experience-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image: url("/static/images/tableside-2.jpg");
+  background-size: cover;
+  background-position: center 25%;
+  background-repeat: no-repeat;
+
+  z-index: 0;
+}
+
+/* DARK OVERLAY */
+.experience-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.80),
+    rgba(0,0,0,0.55),
+    rgba(0,0,0,0.35)
+  );
+
+  z-index: 1;
+}
+
+.experience-hero .hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-overlay,
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content h1 {
+  font-family: inherit; /* or your heading font if you have one */
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  letter-spacing: 0.5px;
+  color: var(--ink);
+  text-shadow: 0 2px 12px rgba(0,0,0,0.7);
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: rgba(232, 227, 218, 0.85); /* soft bone tone from your system */
+  text-shadow: 0 2px 10px rgba(0,0,0,0.65);
+  max-width: 650px;
+  margin: 0 auto 1rem auto;
+}
+
+.hero-content p:last-child {
+  color: #c24a3a;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.hero-content {
+  animation: fadeUp 0.8s ease-out both;
+}
+
+.hero-content h1 {
+  color: var(--ink);
+  letter-spacing: 0.5px;
+}
+
+.hero-content p:first-of-type {
+  color: var(--muted);
+}
+
+.hero-content p:last-of-type {
+  color: var(--ember);
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.experience-card h2 {
+  color: var(--ink);
+  position: relative;
+  margin-bottom: 0.75rem;
+}
+
+/* subtle fire underline accent */
+.experience-card h2::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  margin-top: 6px;
+  background: var(--fire);
+  opacity: 0.8;
+}
+
+.experience-card p {
+  color: var(--muted);
+}
+
+.experience-card ul {
+  color: var(--soft);
+}
+
+.experience-card li {
+  margin-bottom: 0.4rem;
+}
+
+.experience-card li::marker {
+  color: var(--fire);
+}
+
+.booking-cta h2 {
+  color: var(--ink);
+}
+
+.booking-cta p {
+  color: var(--muted);
+}
+
+.btn-primary {
+  background: var(--fire);
+  color: var(--ink);
+  border: none;
+}
+
+.btn-primary:hover {
+  background: var(--fire-deep);
+}
+
+.experience-card.alt {
+  background: rgba(255,255,255,0.02);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   EXPERIENCE PAGE — SAFE OVERRIDE PATCH
+   (non-destructive, scoped, wins cascade)
+========================= */
+
+/* Page scope (only affects experience layout area) */
+.experience-grid,
+.experience-card,
+.experience-hero {
+  color: var(--ink);
+}
+
+/* =========================
+   HERO TEXT CONTROL
+========================= */
+
+.experience-hero .hero-content h1 {
+  color: var(--ink);
+  text-shadow: 0 2px 18px rgba(0,0,0,0.55);
+}
+
+.experience-hero .hero-content p {
+  color: var(--muted);
+  text-shadow: 0 2px 10px rgba(0,0,0,0.65);
+}
+
+/* punchline line */
+.experience-hero .hero-content p:last-of-type {
+  color: var(--ember);
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+/* =========================
+   EXPERIENCE CARDS
+========================= */
+
+/* headings */
+.experience-card h2 {
+  color: var(--ink);
+  position: relative;
+}
+
+/* fire underline accent */
+.experience-card h2::after {
+  content: "";
+  display: block;
+  width: 42px;
+  height: 2px;
+  margin-top: 6px;
+  background: var(--fire);
+  opacity: 0.85;
+}
+
+/* body copy */
+.experience-card p {
+  color: var(--muted);
+}
+
+/* list styling */
+.experience-card ul {
+  color: var(--soft);
+}
+
+/* list bullets = brand fire */
+.experience-card li::marker {
+  color: var(--fire);
+}
+
+/* =========================
+   SUBTLE DEPTH VARIATION
+========================= */
+
+.experience-card.alt {
+  background: rgba(255,255,255,0.02);
+}
+
+/* =========================
+   CTA (if present)
+========================= */
+
+.booking-cta h2 {
+  color: var(--ink);
+}
+
+.booking-cta p {
+  color: var(--muted);
+}
+
+.btn-primary {
+  background: var(--fire);
+  color: var(--ink);
+}
+
+.btn-primary:hover {
+  background: var(--fire-deep);
+}
+
+/* =========================
+   EXPERIENCE PAGE — HARD SCOPE FIX
+   (this WILL override your globals cleanly)
+========================= */
+
+.experience-page {
+  color: var(--ink);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.experience-page .hero-content h1 {
+  color: var(--ink);
+  text-shadow: 0 2px 18px rgba(0,0,0,0.55);
+}
+
+.experience-page .hero-content p {
+  color: var(--muted);
+  text-shadow: 0 2px 10px rgba(0,0,0,0.65);
+}
+
+.experience-page .hero-content p:last-of-type {
+  color: var(--ember);
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.experience-page .experience-card h2 {
+  color: var(--ink);
+}
+
+.experience-page .experience-card p {
+  color: var(--muted);
+}
+
+.experience-page .experience-card ul {
+  color: var(--soft);
+}
+
+.experience-page .experience-card li::marker {
+  color: var(--fire);
+}
+
+/* subtle brand underline */
+.experience-page .experience-card h2::after {
+  content: "";
+  display: block;
+  width: 42px;
+  height: 2px;
+  margin-top: 6px;
+  background: var(--fire);
+  opacity: 0.85;
+}
+
+/* 🔥 punchline line */
+.experience-text p:last-of-type {
+  color: #c24a3a !important;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+/* =========================
+   HOME HERO TEXT RESTORE
+   Scoped to home hero only
+========================= */
+
+.page > .hero:first-child .hero-content {
+  text-align: left;
+  align-self: center;
+  width: min(860px, 92%);
+  padding: 120px 5% 90px;
+  animation: none;
+}
+
+.page > .hero:first-child .hero-content .eyebrow {
+  color: var(--gold);
+  opacity: 1;
+  font-style: normal;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.55);
+  margin-bottom: 14px;
+}
+
+.page > .hero:first-child .hero-content h1 {
+  max-width: 780px;
+  font-family: var(--display);
+  font-size: 68px;
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+  color: #f2efe8;
+  text-shadow: 0 3px 24px rgba(0,0,0,0.7);
+  margin: 0;
+}
+
+.page > .hero:first-child .hero-copy {
+  max-width: 660px;
+  margin: 26px 0 0;
+  color: rgba(255,255,255,0.92);
+  opacity: 1;
+  font-size: 21px;
+  line-height: 1.65;
+  font-style: normal;
+  font-weight: 400;
+  text-shadow: 0 2px 14px rgba(0,0,0,0.65);
+}
+
+.page > .hero:first-child .hero-actions {
+  justify-content: flex-start;
+  margin-top: 38px;
+}
+
+@media (max-width: 680px) {
+  .page > .hero:first-child .hero-content {
+    width: 100%;
+    padding: 88px 5% 52px;
+  }
+
+  .page > .hero:first-child .hero-content h1 {
+    font-size: 42px;
+  }
+
+  .page > .hero:first-child .hero-copy {
+    font-size: 17px;
+  }
+}
+
+/* =========================
+   FINAL HERO CTA POLISH
+========================= */
+
+.page > .hero:first-child .hero-copy {
+  margin-top: 28px;
+}
+
+.button-primary {
+  box-shadow: 0 10px 30px rgba(154, 42, 32, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.button-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 36px rgba(154, 42, 32, 0.45);
+}
+
+/* =========================
+   EXPERIENCE HERO RESTORE
+   (separate from home hero)
+========================= */
+
+.experience-hero .hero-content {
+  text-align: center;
+  padding: 120px 5% 80px;
+}
+
+.experience-hero .hero-content h1 {
+  color: #f2efe8;
+  font-size: clamp(2.4rem, 4vw, 3.6rem);
+  text-shadow: 0 3px 22px rgba(0,0,0,0.7);
+}
+
+.experience-hero .hero-content p {
+  color: rgba(242, 239, 232, 0.85);
+  max-width: 640px;
+  margin: 0 auto;
+  text-shadow: 0 2px 14px rgba(0,0,0,0.65);
+}
+
+.experience-hero .hero-content p:last-of-type {
+  color: var(--ember);
+  font-weight: 500;
+}
+
+/* =========================
+   EXPERIENCE HERO CENTER FIX
+========================= */
+
+.experience-hero {
+  justify-content: center;
+  text-align: center;
+}
+
+.experience-hero .hero-content {
+  width: min(820px, 92%);
+  margin: 0 auto;
+  padding: 130px 5% 90px;
+  text-align: center;
+}
+
+.experience-hero .hero-content h1 {
+  max-width: 760px;
+  margin: 0 auto 18px;
+  color: #f2efe8;
+  font-family: var(--display);
+  font-size: clamp(2.7rem, 5vw, 4.2rem);
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+  text-shadow: 0 3px 18px rgba(0,0,0,0.6);
+}
+
+.experience-hero .hero-content p {
+  max-width: 660px;
+  margin: 0 auto 14px;
+  color: rgba(242, 239, 232, 0.9);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.55);
+}
+
+.experience-hero .hero-content p:last-of-type {
+  color: var(--ember);
+  font-weight: 600;
+}
+
+/* =========================
+   HOME HERO OVERLAY — CRISP VERSION
+========================= */
+
+.page > .hero:first-child .hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  /* NO blur, NO haze — just clean contrast */
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0,0,0,0.45) 0%,
+      rgba(0,0,0,0.28) 40%,
+      rgba(0,0,0,0.12) 70%,
+      rgba(0,0,0,0.03) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(0,0,0,0.28),
+      rgba(0,0,0,0.06)
+    );
+}
+
+/* =========================
+   HERO TEXT — FINAL PRESENCE PASS
+========================= */
+
+.page > .hero:first-child .hero-content {
+  max-width: 760px;
+}
+
+/* headline */
+.page > .hero:first-child h1 {
+  font-size: clamp(42px, 5vw, 68px);
+  line-height: 1.05;
+
+  color: #f2efe8;
+  text-shadow:
+    0 2px 12px rgba(0,0,0,0.55),
+    0 6px 30px rgba(0,0,0,0.35);
+
+  letter-spacing: -0.02em;
+}
+
+/* subtext */
+.page > .hero:first-child .hero-copy {
+  font-size: 20px;
+  line-height: 1.7;
+
+  color: rgba(255,255,255,0.92);
+
+  text-shadow: 0 2px 10px rgba(0,0,0,0.45);
+}
+
+/* eyebrow */
+.page > .hero:first-child .eyebrow {
+  color: var(--gold);
+  letter-spacing: 0.14em;
+}
+
+/* HERO BRAND LINE — SMOKE SKILL SERVICE */
+.page > .hero:first-child .eyebrow {
+  color: #f2efe8;
+  letter-spacing: 0.22em;
+  font-weight: 900;
+
+  text-shadow:
+    0 0 8px rgba(255,255,255,0.06),
+    0 2px 14px rgba(0,0,0,0.65);
+
+  position: relative;
+  display: inline-block;
+}
+
+/* fire underline */
+.page > .hero:first-child .eyebrow::after {
+  content: "";
+  display: block;
+
+  margin-left: 2px;
+  width: 64px;
+  height: 2px;
+  margin-top: 10px;
+
+  background: linear-gradient(
+    90deg,
+    var(--chili),
+    var(--ember)
+  );
+
+  opacity: 0.9;
+}
+
+/* TEXT POP WITHOUT KILLING IMAGE */
+.page > .hero:first-child .hero-content h1 {
+  color: #f2efe8;
+  text-shadow: 0 3px 20px rgba(0,0,0,0.65);
+}
+
+.page > .hero:first-child .hero-copy {
+  color: rgba(242, 239, 232, 0.92);
+  text-shadow: 0 2px 14px rgba(0,0,0,0.6);
+}
+
+.page > .hero:first-child .eyebrow {
+  color: var(--gold);
+  text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+}
+
+/* =========================
+   HERO IMAGE — CRISP RESTORE
+========================= */
+
+.page > .hero:first-child img {
+  filter: none !important;
+  backdrop-filter: none !important;
+  transform: none !important;
+  opacity: 1 !important;
+}
+
+/* =========================
+   FOOTER BRAND — MATCH HEADER
+========================= */
+
+.site-footer .footer-brand span {
+  font-family: var(--display);
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* =========================
+   HERO SECONDARY CTA — BLACK + FIRE
+========================= */
+
+.page > .hero:first-child .button-ghost {
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+
+  color: var(--chili);
+  border: 1px solid rgba(255,255,255,0.2);
+
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.page > .hero:first-child .button-ghost:hover {
+  background: rgba(0, 0, 0, 0.75);
+  color: #ffffff;
+  border-color: var(--chili);
+
+  transform: translateY(-1px);
+}
+
+/* =========================
+   EXPERIENCE HERO — FINAL TEXT COMPOSITION
+========================= */
+
+.experience-hero .experience-text {
+  width: min(820px, 92%);
+  margin: 0 auto;
+}
+
+/* "The Smoked Soul" */
+.experience-hero .experience-text > .eyebrow {
+  text-align: right !important;
+  color: #f2efe8 !important;
+  max-width: 520px;
+  margin-left: auto !important;
+  margin-right: 0 !important;
+  margin-bottom: 10px !important;
+}
+
+/* "Experience" */
+.experience-hero .experience-text > h1 {
+  text-align: left !important;
+  color: var(--gold) !important;
+  max-width: 520px;
+  margin-left: auto !important;
+  margin-right: 0 !important;
+  margin-bottom: 28px !important;
+
+  font-size: clamp(42px, 5vw, 64px);
+  line-height: 1.05;
+}
+
+/* First paragraph under Experience */
+.experience-hero .experience-text > p:nth-of-type(2) {
+  text-align: left !important;
+  max-width: 520px;
+  margin-left: auto !important;
+  margin-right: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 14px !important;
+
+  color: rgba(242, 239, 232, 0.9) !important;
+}
+
+/* Second paragraph under Experience */
+.experience-hero .experience-text > p:nth-of-type(3) {
+  text-align: left !important;
+  max-width: 520px;
+  margin-left: auto !important;
+  margin-right: 0 !important;
+  margin-top: 0 !important;
+
+  color: var(--ember) !important;
+  font-weight: 600;
+}
+/* =========================
+   EXPERIENCE PAGE — BOTTOM CTA POLISH
+========================= */
+
+.booking-cta,
+.experience-footer {
+  padding: 72px 5%;
+  background: var(--mist);
+  color: var(--ink);
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.booking-cta .container,
+.experience-footer .container {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.booking-cta h2,
+.experience-footer h2 {
+  color: var(--gold);
+  font-family: var(--display);
+  font-size: clamp(34px, 4vw, 52px);
+  line-height: 1.05;
+  margin-bottom: 18px;
+}
+
+.booking-cta p,
+.experience-footer p {
+  color: rgba(232,227,218,0.78);
+  font-size: 18px;
+  line-height: 1.7;
+  margin: 0 auto 28px;
+  max-width: 680px;
+}
+
+.booking-cta .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 48px;
+  padding: 13px 24px;
+
+  background: var(--chili);
+  color: var(--white);
+
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.12);
+
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  box-shadow: 0 10px 30px rgba(154,42,32,0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.booking-cta .btn-primary:hover {
+  background: var(--chili-deep);
+  transform: translateY(-1px);
+  box-shadow: 0 14px 36px rgba(154,42,32,0.45);
+}
+
+.experience-footer {
+  background: var(--coal);
+}
+
+.experience-footer h2 {
+  color: #f2efe8;
+}
+
+.experience-footer p {
+  margin-bottom: 0;
+}
+
+/* =========================
+   GOODS PAGE
+========================= */
+
+.goods-hero {
+  padding: 84px 5% 52px;
+  background: var(--coal);
+  text-align: center;
+}
+
+.goods-hero .eyebrow {
+  color: var(--gold);
+  margin-bottom: 18px; /* push title down */
+}
+
+/* TITLE SYSTEM — FINAL TIGHT LOCK */
+
+.goods-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+
+  text-align: center;
+  margin: 0 auto 18px;
+  line-height: 0.82 !important;
+}
+
+.goods-title .goods-sub {
+  display: block;
+  font-size: clamp(20px, 2vw, 26px);
+  line-height: 0.9 !important;
+  color: rgba(242,239,232,0.65);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.goods-title .goods-main {
+  display: block;
+  font-size: clamp(44px, 6vw, 76px);
+  line-height: 0.9 !important;
+  color: #f2efe8;
+  font-family: var(--display);
+  margin: -2px 0 0 !important;
+  padding: 0 !important;
+}
+
+/* supporting copy */
+.goods-hero p {
+  max-width: 680px;
+
+  margin-left: auto !important;
+  margin-right: auto !important;
+
+  text-align: center !important;
+
+  display: block;
+
+  color: rgba(232,227,218,0.78);
+  font-size: 19px;
+  line-height: 1.7;
+}
+
+/* =========================
+   GRID
+========================= */
+
+.goods-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  padding: 52px 5% 84px;
+  background: var(--mist);
+}
+
+.goods-card {
+  min-height: 430px;
+  display: flex;
+  align-items: flex-end;
+  padding: 34px;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(154,42,32,0.22),
+      rgba(15,15,14,0.92)
+    );
+
+  box-shadow: var(--shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.goods-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 28px 80px rgba(0,0,0,0.35);
+}
+
+.goods-card .eyebrow {
+  color: var(--gold);
+}
+
+.goods-card h2 {
+  color: #f2efe8;
+  font-size: clamp(34px, 4vw, 52px);
+  margin-bottom: 18px;
+}
+
+.goods-card p {
+  max-width: 560px;
+  color: rgba(232,227,218,0.78);
+  font-size: 17px;
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+
+/* =========================
+   NOTE
+========================= */
+
+.goods-note {
+  padding: 72px 5%;
+  background: var(--coal);
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.goods-note h2 {
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+.goods-note p {
+  max-width: 680px;
+  margin: 0 auto;
+  color: rgba(232,227,218,0.76);
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 780px) {
+  .goods-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .goods-card {
+    min-height: 360px;
+  }
+}
+
+/* =========================
+   STORY PAGE — LIGHT POLISH
+   Adds depth without changing structure
+========================= */
+
+.page > main.page .intro-panel {
+  position: relative;
+  overflow: hidden;
+
+  max-width: 1120px;
+  margin: 0 auto 28px;
+  padding: 72px 6% 64px;
+
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(176,138,62,0.06),
+      rgba(23,21,19,0.98) 38%,
+      rgba(15,15,14,0.96)
+    ) !important;
+
+  box-shadow: 0 24px 70px rgba(0,0,0,0.28);
+}
+
+/* subtle ember edge */
+.page > main.page .intro-panel::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 28px;
+  bottom: 28px;
+  width: 3px;
+
+  background: linear-gradient(
+    180deg,
+    var(--gold),
+    var(--chili),
+    transparent
+  );
+
+  opacity: 0.75;
+}
+
+/* keep copy readable and controlled */
+.page > main.page .intro-copy {
+  max-width: 850px;
+  padding-top: 0;
+}
+
+/* eyebrow gets a little more brand presence */
+.page > main.page .intro-copy .eyebrow {
+  color: var(--gold) !important;
+  letter-spacing: 0.14em;
+  margin-bottom: 12px;
+}
+
+/* headline polish */
+.page > main.page .intro-copy h2 {
+  color: #f2efe8 !important;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 18px rgba(0,0,0,0.45);
+}
+
+/* paragraph readability */
+.page > main.page .intro-copy p {
+  color: rgba(232,227,218,0.76) !important;
+  font-size: 18px;
+  line-height: 1.78;
+}
+
+/* make philosophy section feel more intentional */
+.page > main.page .brand-philosophy {
+  background:
+    radial-gradient(
+      circle at 18% 20%,
+      rgba(154,42,32,0.18),
+      transparent 36%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(176,138,62,0.07),
+      rgba(23,21,19,0.98) 42%,
+      rgba(15,15,14,0.98)
+    ) !important;
+}
+
+/* final section gets a small statement feel */
+.page > main.page .intro-panel:last-of-type {
+  text-align: center;
+  border-color: rgba(176,138,62,0.22);
+}
+
+.page > main.page .intro-panel:last-of-type .intro-copy {
+  margin: 0 auto;
+}
+
+.page > main.page .intro-panel:last-of-type h2 {
+  color: var(--gold) !important;
+}
+
+/* mobile */
+@media (max-width: 780px) {
+  .page > main.page .intro-panel {
+    padding: 54px 6% 48px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+  }
+
+  .page > main.page .intro-copy p {
+    font-size: 16px;
+  }
+}
+
+/* =========================
+   STORY PAGE — BALANCED LAYOUT (FINAL)
+========================= */
+
+/* center the panel itself, NOT the text */
+.page > main.page .intro-panel {
+  max-width: 1100px;
+  margin: 0 auto 28px;
+
+  padding: 72px 6% 64px;
+
+  /* restore your original background */
+  background: var(--mist) !important;
+
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 14px;
+}
+
+/* keep content readable and centered as a BLOCK */
+.page > main.page .intro-copy {
+  max-width: 760px;
+  margin: 0 auto;
+
+  text-align: left; /* ← restore your original alignment */
+}
+
+/* make sure nothing is forcing center text */
+.page > main.page .intro-copy h2,
+.page > main.page .intro-copy p,
+.page > main.page .intro-copy .eyebrow {
+  text-align: left;
+}
+
+/* =========================
+   STORY — PHILOSOPHY EMPHASIS
+========================= */
+
+.page > main.page .brand-philosophy {
+  max-width: 920px;              /* wider than others */
+  margin: 60px auto;             /* more breathing room top/bottom */
+
+  padding: 96px 7% 88px;         /* bigger internal space */
+
+  background: var(--coal) !important;  /* deeper contrast */
+  border: 1px solid rgba(176,138,62,0.18);
+  border-radius: 16px;
+
+  box-shadow: 0 30px 90px rgba(0,0,0,0.45);
+}
+
+/* headline hits harder */
+.page > main.page .brand-philosophy h2 {
+  color: var(--gold) !important;
+  font-size: clamp(36px, 4vw, 52px);
+  margin-bottom: 28px;
+}
+
+/* paragraphs get a little more authority */
+.page > main.page .brand-philosophy p {
+  font-size: 19px;
+  line-height: 1.85;
+  color: rgba(232,227,218,0.85) !important;
+}
+
+/* subtle separation from the rest of the page */
+.page > main.page .brand-philosophy::before {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 2px;
+  margin-bottom: 28px;
+  background: linear-gradient(90deg, var(--gold), var(--chili));
+  opacity: 0.7;
+}
+
+/* =========================
+   STORY PAGE — DARK MODE (COAL)
+========================= */
+
+.story-page {
+  background: var(--coal);
+  color: var(--ink);
+}
+
+/* make sure sections inherit properly */
+.story-page .intro-panel,
+.story-page .brand-philosophy {
+  background: var(--mist) !important;
+  color: var(--ink);
+}
+
+/* keep text readable */
+.story-page p {
+  color: rgba(232,227,218,0.78);
+}
+
+.story-page h2 {
+  color: #f2efe8;
+}
+
+.story-page .eyebrow {
+  color: var(--gold);
+}
+
+/* =========================
+   STORY — CENTERED INTRO PANELS
+========================= */
+
+.story-page .intro-panel {
+  text-align: center;
+}
+
+.story-page .intro-copy {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.story-page .intro-copy h2,
+.story-page .intro-copy p,
+.story-page .intro-copy .eyebrow {
+  text-align: center;
+}
+
+/* =========================
+   STORY PAGE BOTTOM STATEMENT ONLY
+   Centers only the final Smoked Soul section
+========================= */
+
+main.story-page > section.intro-panel:last-of-type {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+
+  text-align: center !important;
+}
+
+main.story-page > section.intro-panel:last-of-type .intro-copy {
+  max-width: 760px !important;
+  width: 100% !important;
+
+  margin: 0 auto !important;
+  padding-top: 0 !important;
+
+  text-align: center !important;
+}
+
+main.story-page > section.intro-panel:last-of-type .eyebrow,
+main.story-page > section.intro-panel:last-of-type h2,
+main.story-page > section.intro-panel:last-of-type p {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* =========================
+   STORY PAGE BOTTOM STATEMENT
+   Direct class fix
+========================= */
+
+.story-page .smoked-soul-statement {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+.story-page .smoked-soul-statement .intro-copy {
+  max-width: 760px !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  padding-top: 0 !important;
+  text-align: center !important;
+}
+
+.story-page .smoked-soul-statement .eyebrow,
+.story-page .smoked-soul-statement h2,
+.story-page .smoked-soul-statement p {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
