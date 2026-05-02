@@ -2711,3 +2711,192 @@ main.story-page > section.intro-panel:last-of-type p {
   margin-left: auto !important;
   margin-right: auto !important;
 }
+
+/* ================================
+   MOBILE ONLY FIXES
+   The Smoked Soul
+   ================================ */
+
+@media (max-width: 768px) {
+
+  /* Keep the whole page from sliding sideways */
+  html,
+  body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Header becomes mobile-friendly */
+  .site-header {
+    width: calc(100% - 24px);
+    left: 12px;
+    right: 12px;
+    top: 12px;
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    z-index: 9999;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+  }
+
+  .brand-logo {
+    max-height: 46px;
+    width: auto;
+  }
+
+  /* This should make the other page links reachable */
+  .site-nav,
+  nav,
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .site-nav a,
+  nav a,
+  .nav-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 10px;
+    font-size: 0.78rem;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  /* Give content room below floating header */
+  main,
+  .page {
+    padding-top: 96px;
+  }
+
+  /* Home hero mobile fix */
+  .hero {
+    min-height: 78vh;
+    padding: 150px 22px 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero::before {
+    background-size: cover;
+    background-position: center center;
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .hero h1,
+  .hero-title {
+    font-size: clamp(2.35rem, 13vw, 4rem);
+    line-height: 0.95;
+    letter-spacing: 0.02em;
+  }
+
+  .hero p,
+  .hero-copy,
+  .hero-subtitle {
+    font-size: 1rem;
+    line-height: 1.55;
+    max-width: 34rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Buttons stack cleaner on mobile */
+  .hero-actions,
+  .cta-row,
+  .button-row {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    width: 100%;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions a,
+  .cta-row a,
+  .button-row a,
+  .btn,
+  .button {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Panels breathe better on mobile */
+  section {
+    scroll-margin-top: 120px;
+  }
+
+  .intro-panel,
+  .service-panel,
+  .goods-panel,
+  .story-panel,
+  .experience-panel {
+    width: calc(100% - 28px);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 28px 20px;
+  }
+}
+
+
+/* Smaller phones */
+@media (max-width: 480px) {
+
+  .site-header {
+    width: calc(100% - 18px);
+    left: 9px;
+    right: 9px;
+  }
+
+  .brand-logo {
+    max-height: 42px;
+  }
+
+  .site-nav a,
+  nav a,
+  .nav-links a {
+    font-size: 0.72rem;
+    padding: 7px 8px;
+  }
+
+  main,
+  .page {
+    padding-top: 108px;
+  }
+
+  .hero {
+    min-height: 82vh;
+    padding: 160px 18px 64px;
+  }
+
+  .hero::before {
+    background-size: cover;
+    background-position: center center;
+  }
+
+  .hero h1,
+  .hero-title {
+    font-size: clamp(2.1rem, 15vw, 3.4rem);
+  }
+}
