@@ -4,7 +4,48 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>{% block title %}The Smoked Soul{% endblock %}</title>
+  <title>{% block title %}The Smoked Soul | Private Chef & Event Dining in Texas{% endblock %}</title>
+  <meta name="description" content="{% block meta_description %}The Smoked Soul offers private chef dinners, event dining, and culinary consulting rooted in Texas fire, disciplined service, and generous hospitality.{% endblock %}">
+  <meta name="robots" content="{% block robots %}index, follow{% endblock %}">
+  <link rel="canonical" href="{% block canonical_url %}{{ request.base_url }}{% endblock %}">
+
+  <meta property="og:site_name" content="The Smoked Soul">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="{{ self.title()|striptags|trim }}">
+  <meta property="og:description" content="{{ self.meta_description()|striptags|trim }}">
+  <meta property="og:url" content="{{ request.base_url }}">
+  <meta property="og:image" content="{% block og_image %}{{ url_for('static', filename='images/header.jpg', _external=True) }}{% endblock %}">
+  <meta property="og:image:alt" content="{% block og_image_alt %}Chef-led smoked dining experience from The Smoked Soul{% endblock %}">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ self.title()|striptags|trim }}">
+  <meta name="twitter:description" content="{{ self.meta_description()|striptags|trim }}">
+  <meta name="twitter:image" content="{{ self.og_image()|striptags|trim }}">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": {{ (request.base_url ~ "#webpage")|tojson }},
+    "url": {{ request.base_url|tojson }},
+    "name": {{ self.title()|striptags|trim|tojson }},
+    "description": {{ self.meta_description()|striptags|trim|tojson }},
+    "isPartOf": {
+      "@type": "WebSite",
+      "@id": {{ (url_for('home', _external=True) ~ "#website")|tojson }},
+      "name": "The Smoked Soul",
+      "url": {{ url_for('home', _external=True)|tojson }}
+    },
+    "about": {
+      "@type": "Organization",
+      "@id": {{ (url_for('home', _external=True) ~ "#organization")|tojson }},
+      "name": "The Smoked Soul"
+    },
+    "inLanguage": "en-US"
+  }
+  </script>
+  {% block structured_data %}{% endblock %}
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

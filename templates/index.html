@@ -1,6 +1,91 @@
 {% extends "base.html" %}
 
-{% block title %}Home{% endblock %}
+{% block title %}The Smoked Soul | Private Chef & Event Dining in Texas{% endblock %}
+{% block meta_description %}Book The Smoked Soul for private chef dinners, events, and culinary consulting across Texas with fire-driven menus and restaurant-level execution.{% endblock %}
+{% block structured_data %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": {{ (url_for('home', _external=True) ~ "#organization")|tojson }},
+      "name": "The Smoked Soul",
+      "url": {{ url_for('home', _external=True)|tojson }},
+      "logo": {
+        "@type": "ImageObject",
+        "url": {{ url_for('static', filename='images/the-smoked-soul-logo.png', _external=True)|tojson }}
+      },
+      "image": {{ url_for('static', filename='images/header.jpg', _external=True)|tojson }},
+      "description": "Private chef dinners, event dining, and culinary consulting rooted in Texas fire and disciplined hospitality.",
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Texas"
+      },
+      "knowsAbout": [
+        "Private dining",
+        "Event dining",
+        "Culinary consulting",
+        "Texas barbecue",
+        "Live-fire cooking"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": {{ (url_for('home', _external=True) ~ "#website")|tojson }},
+      "name": "The Smoked Soul",
+      "url": {{ url_for('home', _external=True)|tojson }},
+      "publisher": {
+        "@id": {{ (url_for('home', _external=True) ~ "#organization")|tojson }}
+      },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "Service",
+      "@id": {{ (url_for('experience', _external=True) ~ "#private-dining")|tojson }},
+      "name": "Private Dining",
+      "serviceType": "Private chef dinners",
+      "provider": {
+        "@id": {{ (url_for('home', _external=True) ~ "#organization")|tojson }}
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Texas"
+      },
+      "url": {{ url_for('experience', _external=True)|tojson }}
+    },
+    {
+      "@type": "Service",
+      "@id": {{ (url_for('experience', _external=True) ~ "#events")|tojson }},
+      "name": "Events and Gatherings",
+      "serviceType": "Chef-led event dining",
+      "provider": {
+        "@id": {{ (url_for('home', _external=True) ~ "#organization")|tojson }}
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Texas"
+      },
+      "url": {{ url_for('experience', _external=True)|tojson }}
+    },
+    {
+      "@type": "Service",
+      "@id": {{ (url_for('experience', _external=True) ~ "#consulting")|tojson }},
+      "name": "Culinary Consulting",
+      "serviceType": "Menu development, kitchen flow, launch support, and culinary direction",
+      "provider": {
+        "@id": {{ (url_for('home', _external=True) ~ "#organization")|tojson }}
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Texas"
+      },
+      "url": {{ url_for('experience', _external=True)|tojson }}
+    }
+  ]
+}
+</script>
+{% endblock %}
 
 {% block content %}
 

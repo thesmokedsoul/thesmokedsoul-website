@@ -1,6 +1,29 @@
 {% extends "base.html" %}
 
-{% block title %}Story | The Smoked Soul{% endblock %}
+{% block title %}Chef Story | The Smoked Soul{% endblock %}
+{% block meta_description %}Read the story behind The Smoked Soul: Texas hospitality, kitchen discipline, pressure-tested craft, and chef-led dining built around smoke, skill, and service.{% endblock %}
+{% block structured_data %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": {{ url_for('home', _external=True)|tojson }}
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Story",
+      "item": {{ url_for('story', _external=True)|tojson }}
+    }
+  ]
+}
+</script>
+{% endblock %}
 
 {% block content %}
 
